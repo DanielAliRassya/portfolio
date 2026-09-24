@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Daniel Ali Rassya - Full-Stack Developer">
+  <title>Daniel Ali Rassya | Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-bracket">&lt;</span>Daniel<span class="logo-bracket">/&gt;</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Beranda</a></li>
+        <li><a href="#about" class="nav-link">Tentang</a></li>
+        <li><a href="#skills" class="nav-link">Keahlian</a></li>
+        <li><a href="#contact" class="nav-link">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text reveal">
+        <p class="hero-greeting">Halo, saya</p>
+        <h1 class="hero-title">Daniel Ali Rassya</h1>
+        <p class="hero-subtitle">
+          <span id="typewriter"></span><span class="cursor">|</span>
+        </p>
+        <p class="hero-description">
+          Seorang <strong>Full-Stack Developer</strong> yang percaya bahwa teknologi adalah jembatan untuk mewujudkan ide-ide besar.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Hubungi Saya
+          </a>
+          <a href="#about" class="btn btn-secondary">
+            <i class="fas fa-user"></i> Kenali Lebih Dekat
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-1">
+        <div class="profile-card">
+          <div class="profile-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-number">Full</span>
+              <span class="stat-label">Stack</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2026</span>
+              <span class="stat-label">Tech</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Passion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <a href="#about" aria-label="Scroll down">
+        <span class="mouse"></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Tentang Saya</span>
+          <h2 class="section-title">Perjalanan di Dunia Teknologi</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <div class="about-icon">
+              <i class="fas fa-child"></i>
+            </div>
+            <h3>Awal Mula</h3>
+            <p>
+              Sejak kecil, saya sudah akrab dengan yang namanya gadget. Rasa ingin tahu itu membawa saya memutuskan untuk mengejar cita-cita di bidang teknologi.
+            </p>
+          </div>
+          <div class="about-card reveal delay-1">
+            <div class="about-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Lingkungan yang Baik</h3>
+            <p>
+              Saya percaya bahwa lingkungan yang positif adalah kunci utama. Tanpa dukungan dan persaingan sehat di sekitar saya, saya tidak akan bisa berkembang seperti sekarang.
+            </p>
+          </div>
+          <div class="about-card reveal delay-2">
+            <div class="about-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3>Filosofi</h3>
+            <p>
+              Saya memang bukan yang terbaik, tapi saya selalu berkomitmen untuk melakukan yang terbaik dalam setiap kesempatan.
+            </p>
+          </div>
+        </div>
+        <div class="about-quote reveal">
+          <blockquote>
+            "Bukan tentang menjadi yang terbaik, tapi tentang memberikan yang terbaik setiap harinya."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Keahlian</span>
+          <h2 class="section-title">Apa yang Saya Kuasai</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="skill-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Dasar Web Statis</h3>
+            <p>HTML, CSS, dan JavaScript untuk membangun website modern yang responsif dan ringan.</p>
+            <div class="skill-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-card reveal delay-1">
+            <div class="skill-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Desain Sosial Media</h3>
+            <p>Membuat konten visual yang menarik dan konsisten untuk berbagai platform sosial media.</p>
+            <div class="skill-tags">
+              <span>Visual Design</span>
+              <span>Branding</span>
+            </div>
+          </div>
+          <div class="skill-card reveal delay-2">
+            <div class="skill-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3>Desain Content Video</h3>
+            <p>Mengolah ide dan elemen visual menjadi video yang engaging dan berkesan.</p>
+            <div class="skill-tags">
+              <span>Video Editing</span>
+              <span>Storytelling</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">
+              <i class="fas fa-file-word"></i>
+            </div>
+            <h3>Microsoft Office</h3>
+            <p>Menguasai perkantoran digital untuk produktivitas dan dokumentasi profesional.</p>
+            <div class="skill-tags">
+              <span>Word</span>
+              <span>Excel</span>
+              <span>PowerPoint</span>
+            </div>
+          </div>
+          <div class="skill-card reveal delay-1">
+            <div class="skill-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Software Populer</h3>
+            <p>Familiar dengan berbagai tools dan software yang umum digunakan di industri teknologi.</p>
+            <div class="skill-tags">
+              <span>Productivity</span>
+              <span>Collaboration</span>
+            </div>
+          </div>
+          <div class="skill-card reveal delay-2">
+            <div class="skill-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Full-Stack Journey</h3>
+            <p>Sedang terus belajar dan mengembangkan diri menuju full-stack developer yang handal.</p>
+            <div class="skill-tags">
+              <span>Frontend</span>
+              <span>Backend</span>
+              <span>Database</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Kontak</span>
+          <h2 class="section-title">Mari Terhubung</h2>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info reveal">
+            <h3>Siap berkolaborasi?</h3>
+            <p>
+              Jika Anda tertarik untuk bekerja sama, berdiskusi tentang teknologi, atau sekadar menyapa, jangan ragu untuk menghubungi saya.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:danielalirassya@gmail.com" class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">danielalirassya@gmail.com</span>
+                </div>
+              </a>
+              <a href="https://github.com/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">@danielalirassya</span>
+                </div>
+              </a>
+              <a href="https://linkedin.com/in/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">danielalirassya</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="contact-cta reveal delay-1">
+            <div class="cta-card">
+              <i class="fas fa-paper-plane"></i>
+              <h3>Mulai Proyek Bersama</h3>
+              <p>Diskusikan ide Anda dan mari wujudkan bersama.</p>
+              <a href="mailto:danielalirassya@gmail.com" class="btn btn-primary btn-large">
+                Kirim Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">
+          Dibuat dengan <i class="fas fa-heart"></i> oleh <strong>Daniel Ali Rassya</strong>
+        </p>
+        <p class="footer-copy">
+          &copy; <span id="year"></span> All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
