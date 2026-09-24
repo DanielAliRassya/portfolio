@@ -7,11 +7,26 @@
   <title>Daniel Ali Rassya | Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Mesh Gradient Background -->
+  <div class="mesh-bg">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+    <div class="mesh-blob mesh-blob-4"></div>
+  </div>
+
+  <!-- Noise Overlay -->
+  <div class="noise"></div>
+
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
@@ -25,6 +40,7 @@
         <li><a href="#home" class="nav-link active">Beranda</a></li>
         <li><a href="#about" class="nav-link">Tentang</a></li>
         <li><a href="#skills" class="nav-link">Keahlian</a></li>
+        <li><a href="#projects" class="nav-link">Proyek</a></li>
         <li><a href="#contact" class="nav-link">Kontak</a></li>
       </ul>
     </div>
@@ -32,7 +48,6 @@
 
   <!-- Hero Section -->
   <header class="hero" id="home">
-    <div class="hero-bg"></div>
     <div class="container hero-content">
       <div class="hero-text reveal">
         <p class="hero-greeting">Halo, saya</p>
@@ -44,16 +59,22 @@
           Seorang <strong>Full-Stack Developer</strong> yang percaya bahwa teknologi adalah jembatan untuk mewujudkan ide-ide besar.
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-paper-plane"></i> Hubungi Saya
+          <a href="#projects" class="btn btn-primary magnetic">
+            <i class="fas fa-rocket"></i> Lihat Proyek
           </a>
-          <a href="#about" class="btn btn-secondary">
+          <a href="#about" class="btn btn-secondary magnetic">
             <i class="fas fa-user"></i> Kenali Lebih Dekat
           </a>
+        </div>
+        <div class="hero-socials">
+          <a href="mailto:danielalirassya@gmail.com" class="hero-social" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/danielalirassya" target="_blank" rel="noopener" class="hero-social" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/danielalirassya" target="_blank" rel="noopener" class="hero-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
       <div class="hero-visual reveal delay-1">
         <div class="profile-card">
+          <div class="profile-card-glow"></div>
           <div class="profile-icon">
             <i class="fas fa-code"></i>
           </div>
@@ -141,9 +162,7 @@
             <h3>Dasar Web Statis</h3>
             <p>HTML, CSS, dan JavaScript untuk membangun website modern yang responsif dan ringan.</p>
             <div class="skill-tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
             </div>
           </div>
           <div class="skill-card reveal delay-1">
@@ -153,8 +172,7 @@
             <h3>Desain Sosial Media</h3>
             <p>Membuat konten visual yang menarik dan konsisten untuk berbagai platform sosial media.</p>
             <div class="skill-tags">
-              <span>Visual Design</span>
-              <span>Branding</span>
+              <span>Visual Design</span><span>Branding</span>
             </div>
           </div>
           <div class="skill-card reveal delay-2">
@@ -164,8 +182,7 @@
             <h3>Desain Content Video</h3>
             <p>Mengolah ide dan elemen visual menjadi video yang engaging dan berkesan.</p>
             <div class="skill-tags">
-              <span>Video Editing</span>
-              <span>Storytelling</span>
+              <span>Video Editing</span><span>Storytelling</span>
             </div>
           </div>
           <div class="skill-card reveal">
@@ -175,9 +192,7 @@
             <h3>Microsoft Office</h3>
             <p>Menguasai perkantoran digital untuk produktivitas dan dokumentasi profesional.</p>
             <div class="skill-tags">
-              <span>Word</span>
-              <span>Excel</span>
-              <span>PowerPoint</span>
+              <span>Word</span><span>Excel</span><span>PowerPoint</span>
             </div>
           </div>
           <div class="skill-card reveal delay-1">
@@ -187,8 +202,7 @@
             <h3>Software Populer</h3>
             <p>Familiar dengan berbagai tools dan software yang umum digunakan di industri teknologi.</p>
             <div class="skill-tags">
-              <span>Productivity</span>
-              <span>Collaboration</span>
+              <span>Productivity</span><span>Collaboration</span>
             </div>
           </div>
           <div class="skill-card reveal delay-2">
@@ -198,9 +212,154 @@
             <h3>Full-Stack Journey</h3>
             <p>Sedang terus belajar dan mengembangkan diri menuju full-stack developer yang handal.</p>
             <div class="skill-tags">
-              <span>Frontend</span>
-              <span>Backend</span>
-              <span>Database</span>
+              <span>Frontend</span><span>Backend</span><span>Database</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Portofolio</span>
+          <h2 class="section-title">Proyek Pilihan</h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="project-filters reveal">
+          <button class="filter-btn active magnetic" data-filter="all">Semua</button>
+          <button class="filter-btn magnetic" data-filter="web">Web</button>
+          <button class="filter-btn magnetic" data-filter="design">Desain</button>
+          <button class="filter-btn magnetic" data-filter="video">Video</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card reveal" data-category="web">
+            <div class="project-visual project-visual-1">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="https://github.com/DanielAliRassya/portfolio" target="_blank" rel="noopener" class="project-link magnetic" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-laptop-code project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3>Portfolio Website</h3>
+              <p>Website portofolio personal dengan dark theme, animasi modern, dan fully responsive design.</p>
+              <div class="project-tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card reveal delay-1" data-category="web">
+            <div class="project-visual project-visual-2">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="#" class="project-link magnetic" aria-label="GitHub repo"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-store project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3>Landing Page UMKM</h3>
+              <p>Halaman landing page modern untuk bisnis UMKM dengan animasi interaktif dan form kontak.</p>
+              <div class="project-tech">
+                <span>HTML5</span><span>CSS3</span><span>JS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card reveal delay-2" data-category="design">
+            <div class="project-visual project-visual-3">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="#" class="project-link magnetic" aria-label="Source"><i class="fab fa-behance"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-palette project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Desain Sosial Media</span>
+              <h3>Social Media Kit</h3>
+              <p>Template desain konten sosial media yang konsisten dan eye-catching untuk berbagai platform.</p>
+              <div class="project-tech">
+                <span>Visual Design</span><span>Branding</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card reveal" data-category="design">
+            <div class="project-visual project-visual-4">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="#" class="project-link magnetic" aria-label="Source"><i class="fab fa-behance"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-id-card project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Desain Brand</span>
+              <h3>Brand Identity Kit</h3>
+              <p>Paket identitas brand lengkap: logo, color palette, tipografi, dan style guide.</p>
+              <div class="project-tech">
+                <span>Logo Design</span><span>Style Guide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card reveal delay-1" data-category="video">
+            <div class="project-visual project-visual-5">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Watch"><i class="fas fa-play"></i></a>
+                  <a href="#" class="project-link magnetic" aria-label="Source"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-film project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Content Video</span>
+              <h3>Product Showcase Video</h3>
+              <p>Video promosi produk dengan motion graphics, transisi halus, dan storytelling yang engaging.</p>
+              <div class="project-tech">
+                <span>Motion Graphics</span><span>Editing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card reveal delay-2" data-category="video">
+            <div class="project-visual project-visual-6">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" class="project-link magnetic" aria-label="Watch"><i class="fas fa-play"></i></a>
+                  <a href="#" class="project-link magnetic" aria-label="Source"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+              <i class="fas fa-bolt project-emoji"></i>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Motion Graphics</span>
+              <h3>Animated Logo Reveal</h3>
+              <p>Animasi logo reveal dengan efek dinamis untuk intro video brand dan konten sosial media.</p>
+              <div class="project-tech">
+                <span>Animation</span><span>Motion</span>
+              </div>
             </div>
           </div>
         </div>
@@ -221,28 +380,22 @@
               Jika Anda tertarik untuk bekerja sama, berdiskusi tentang teknologi, atau sekadar menyapa, jangan ragu untuk menghubungi saya.
             </p>
             <div class="contact-links">
-              <a href="mailto:danielalirassya@gmail.com" class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
+              <a href="mailto:danielalirassya@gmail.com" class="contact-item magnetic">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                 <div class="contact-detail">
                   <span class="contact-label">Email</span>
                   <span class="contact-value">danielalirassya@gmail.com</span>
                 </div>
               </a>
-              <a href="https://github.com/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item">
-                <div class="contact-icon">
-                  <i class="fab fa-github"></i>
-                </div>
+              <a href="https://github.com/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item magnetic">
+                <div class="contact-icon"><i class="fab fa-github"></i></div>
                 <div class="contact-detail">
                   <span class="contact-label">GitHub</span>
                   <span class="contact-value">@danielalirassya</span>
                 </div>
               </a>
-              <a href="https://linkedin.com/in/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item">
-                <div class="contact-icon">
-                  <i class="fab fa-linkedin-in"></i>
-                </div>
+              <a href="https://linkedin.com/in/danielalirassya" target="_blank" rel="noopener noreferrer" class="contact-item magnetic">
+                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
                 <div class="contact-detail">
                   <span class="contact-label">LinkedIn</span>
                   <span class="contact-value">danielalirassya</span>
@@ -252,10 +405,11 @@
           </div>
           <div class="contact-cta reveal delay-1">
             <div class="cta-card">
+              <div class="cta-glow"></div>
               <i class="fas fa-paper-plane"></i>
               <h3>Mulai Proyek Bersama</h3>
               <p>Diskusikan ide Anda dan mari wujudkan bersama.</p>
-              <a href="mailto:danielalirassya@gmail.com" class="btn btn-primary btn-large">
+              <a href="mailto:danielalirassya@gmail.com" class="btn btn-light btn-large magnetic">
                 Kirim Email
               </a>
             </div>
@@ -278,6 +432,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound effects">
+    <i class="fas fa-volume-mute" id="soundIcon"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>

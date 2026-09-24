@@ -1,6 +1,6 @@
 /**
- * Daniel Ali Rassya - Portfolio JavaScript
- * Modern, lightweight, and interactive
+ * Daniel Ali Rassya - Premium Portfolio
+ * Custom Cursor | Mesh Gradient | Typewriter | Scroll Reveal | Filter | Sound
  */
 
 (function () {
@@ -8,13 +8,95 @@
 
   /* === DOM Ready === */
   document.addEventListener('DOMContentLoaded', function () {
+    initCustomCursor();
+    initMagneticButtons();
     initNavbar();
     initTypewriter();
     initScrollReveal();
     initSmoothScroll();
     initActiveNav();
+    initProjectFilters();
+    initSoundEffects();
     initYear();
+    initButtonRipple();
   });
+
+  /* === Custom Cursor === */
+  function initCustomCursor() {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      dotX += (mouseX - dotX) * 0.25;
+      dotY += (mouseY - dotY) * 0.25;
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+
+      dot.style.left = dotX + 'px';
+      dot.style.top = dotY + 'px';
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effects
+    const hoverTargets = document.querySelectorAll('a, button, .magnetic, .project-card, .skill-card, .about-card, .contact-item');
+    hoverTargets.forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        dot.classList.add('hovering');
+        ring.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', function () {
+        dot.classList.remove('hovering');
+        ring.classList.remove('hovering');
+      });
+    });
+  }
+
+  /* === Magnetic Buttons === */
+  function initMagneticButtons() {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+    const magneticElements = document.querySelectorAll('.magnetic');
+    magneticElements.forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        el.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.25) + 'px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* === Button Ripple Effect === */
+  function initButtonRipple() {
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        const rect = btn.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        btn.style.setProperty('--mouse-x', x + '%');
+        btn.style.setProperty('--mouse-y', y + '%');
+      });
+    });
+  }
 
   /* === Navbar Scroll Effect === */
   function initNavbar() {
@@ -24,7 +106,6 @@
 
     if (!navbar) return;
 
-    // Scroll effect
     window.addEventListener('scroll', function () {
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -33,14 +114,12 @@
       }
     });
 
-    // Mobile toggle
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', function () {
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
       });
 
-      // Close menu on link click
       navMenu.querySelectorAll('.nav-link').forEach(function (link) {
         link.addEventListener('click', function () {
           navToggle.classList.remove('active');
@@ -114,7 +193,7 @@
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        rootMargin: '0px 0px -60px 0px',
       }
     );
 
@@ -123,7 +202,7 @@
     });
   }
 
-  /* === Smooth Scroll for Anchor Links === */
+  /* === Smooth Scroll === */
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
@@ -164,12 +243,99 @@
         });
       },
       {
-        threshold: 0.3,
+        threshold: 0.25,
       }
     );
 
     sections.forEach(function (section) {
       observer.observe(section);
+    });
+  }
+
+  /* === Project Filters === */
+  function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (!filterBtns.length || !projectCards.length) return;
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        // Filter cards
+        projectCards.forEach(function (card) {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+            card.classList.add('visible');
+          } else {
+            card.classList.add('hidden');
+            card.classList.remove('visible');
+          }
+        });
+      });
+    });
+  }
+
+  /* === Sound Effects === */
+  function initSoundEffects() {
+    const soundToggle = document.getElementById('soundToggle');
+    const soundIcon = document.getElementById('soundIcon');
+    if (!soundToggle || !soundIcon) return;
+
+    let soundEnabled = false;
+    let audioCtx = null;
+
+    function playClickSound() {
+      if (!soundEnabled || !audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 0.1);
+      } catch (e) {}
+    }
+
+    function playHoverSound() {
+      if (!soundEnabled || !audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 0.05);
+      } catch (e) {}
+    }
+
+    soundToggle.addEventListener('click', function () {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      soundEnabled = !soundEnabled;
+      soundToggle.classList.toggle('muted', !soundEnabled);
+      soundIcon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+      if (soundEnabled) playClickSound();
+    });
+
+    // Attach sounds to interactive elements
+    document.querySelectorAll('a, button, .magnetic').forEach(function (el) {
+      el.addEventListener('click', playClickSound);
+      el.addEventListener('mouseenter', playHoverSound);
     });
   }
 
